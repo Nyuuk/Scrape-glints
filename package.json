@@ -1,0 +1,27 @@
+{
+  "name": "scrape-glints",
+  "version": "1.0.0",
+  "description": "Scrape Web GLint",
+  "main": "glints.js",
+  "scripts": {
+    "test": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyuuk/Scrape-glints.git"
+  },
+  "keywords": [
+    "Scrappe",
+    "Glints"
+  ],
+  "author": "Adnan Kha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nyuuk/Scrape-glints/issues"
+  },
+  "homepage": "https://github.com/Nyuuk/Scrape-glints#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^20.7.2"
+  }
+}
