@@ -49,7 +49,8 @@ const cheerio = require('cheerio');
   // menyimpan file html
 //   fs.writeFileSync('example.html', await page.content());
   
-  const [juduls, tempats, gajis, lamanyas, links] = [[],[],[],[],[]];
+  // const [juduls, tempats, gajis, lamanyas, links] = [[],[],[],[],[]];
+  let objs = {};
 
   const $ = cheerio.load(await page.content());
   $('.CompactOpportunityCardsc__CompactJobCardWrapper-sc-dkg8my-0.kwAlsu.compact_job_card').each((index, element) => {
@@ -58,18 +59,26 @@ const cheerio = require('cheerio');
     const gaji = $(element).find('div > div > div:nth-child(2) > div:nth-child(2) > span').text();
     const lamanya = $(element).find('div > div > div:nth-child(2) > div:nth-child(3)').text().split('Diperbarui')[0].trim();
     const link = $(element).find('div > div:nth-child(1) a').attr('href');
-    juduls.push(judul);
-    tempats.push(tempat);
-    gajis.push(gaji);
-    lamanyas.push(lamanya);
-    links.push(link);
+    objs[index] = {
+      title: judul,
+      place: tempat,
+      salary: gaji,
+      timeout: lamanya,
+      link: link
+    };
+    // juduls.push(judul);
+    // tempats.push(tempat);
+    // gajis.push(gaji);
+    // lamanyas.push(lamanya);
+    // links.push(link);
   });
 
-  console.log(juduls);
-  console.log(tempats);
-  console.log(gajis);
-  console.log(lamanyas);
-  console.log(links);
+  console.log(objs);
+  // console.log(juduls);
+  // console.log(tempats);
+  // console.log(gajis);
+  // console.log(lamanyas);
+  // console.log(links);
 
 //   // Mendapatkan responsenya
 //   const response = await page.content();
